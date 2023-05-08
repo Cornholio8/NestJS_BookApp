@@ -19,7 +19,6 @@ export class BooksService {
   public create(
     bookData: Omit<Book, 'id' | 'createdAt' | 'updatedAt'>,
   ): Promise<Book> {
-    //nie public async
     const { authorId, ...otherData } = bookData;
     try {
       return this.prismaService.book.create({
